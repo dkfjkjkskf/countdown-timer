@@ -1,0 +1,40 @@
+<html>
+  <body style="margin: 0; padding: 0;">
+    <div
+      id="countdown"
+      style="
+        font-size: 2em;
+        width: 300px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://files.bo3.gg/uploads/image/82373/image/webp-5e4cdb59ac5596ed5c24f35969f193d3.webp');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        margin: 20px auto;
+      "
+    ></div>
+
+    <script>
+      function updateCountdown() {
+        const now = new Date();
+        const nextHour = new Date();
+        nextHour.setHours(now.getHours() + 1, 0, 0, 0);
+        const diff = nextHour - now;
+
+        const minutes = Math.floor(diff / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById("countdown").textContent =
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
+</html>
